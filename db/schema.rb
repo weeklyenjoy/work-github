@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20210519015522) do
+=======
 ActiveRecord::Schema.define(version: 20210518132340) do
+>>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -24,4 +28,17 @@ ActiveRecord::Schema.define(version: 20210518132340) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "caption"
+    t.integer  "tax_out_price"
+    t.string   "image_id"
+    t.boolean  "is_active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+=======
+>>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
 end
