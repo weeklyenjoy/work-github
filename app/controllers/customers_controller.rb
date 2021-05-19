@@ -5,7 +5,4 @@ class CustomersController < ApplicationController
   def edit
   end
 
-  def exit
-
-  end
 end
