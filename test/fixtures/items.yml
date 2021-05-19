@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  caption: MyText
+  tax_out_price: 1
+  image_id: MyString
+  is_active: false
+
+two:
+  name: MyString
+  caption: MyText
+  tax_out_price: 1
+  image_id: MyString
+  is_active: false
