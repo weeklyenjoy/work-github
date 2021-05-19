@@ -6,6 +6,6 @@ class CustomersController < ApplicationController
   end
 
   def exit
-    
+
   end
 end
