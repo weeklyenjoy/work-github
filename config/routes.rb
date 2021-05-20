@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :customers
   resources :cart_items,only:[:index]
-  resources :items,only:[:index,:edit]
+  resources :items,only:[:index,:edit,:show,:create]
   resources :customers,only: [:show,:edit,:update,:destroy]
 
   get 'customers/exit'
