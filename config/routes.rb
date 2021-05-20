@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :customers
+
   resources :customers,only: [:show,:edit,:update,:destroy]
   namespace :customer do
   resources :cart_items,only:[:index,:create,:destroy,:update]
-  resources :items,only:[:index,:edit]
+  resources :items,only:[:index,:edit,:show,:create]
    # CartItem
   delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
 end

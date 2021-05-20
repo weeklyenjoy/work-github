@@ -1,2 +1,70 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+          <h4 class="mt-5 mb-5">商品一覧 (全X件)</h4>
+        </div>
+      <div class="card-group mb-3">
+          <div class="card" style="width: 18rem">
+            <img src="images.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Name</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images2.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images3.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+      </div>
+      <div class="card-group mb-3">
+          <div class="card" style="width: 18rem">
+            <img src="images4.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Name</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images5.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="woman.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images6.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <%= paginate @items %>
+</main>
