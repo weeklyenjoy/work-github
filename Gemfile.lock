@@ -238,6 +238,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass (~> 5.13)
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
