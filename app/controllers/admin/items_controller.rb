@@ -1,5 +1,4 @@
 class Admin::ItemsController < ApplicationController
-<<<<<<< HEAD
 
   def index
     @items = Item.all
@@ -29,6 +28,5 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:name, :caption, :tax_out_price, :image)
   end
 
-=======
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
+
 end

@@ -51,11 +51,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-<<<<<<< HEAD
     arel (9.0.0)
-=======
-    arel (7.1.4)
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
     bcrypt (3.1.16)
@@ -81,13 +77,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-<<<<<<< HEAD
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
-=======
-    erubis (2.7.0)
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
     execjs (2.7.0)
     ffi (1.15.0)
     font-awesome-sass (5.15.1)
@@ -166,7 +158,6 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-<<<<<<< HEAD
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -179,11 +170,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     ruby2_keywords (0.0.4)
-=======
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -203,14 +189,11 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-<<<<<<< HEAD
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
-=======
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -233,12 +216,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-<<<<<<< HEAD
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-=======
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (3.7.0)
@@ -258,10 +238,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
-=======
-  font-awesome-sass (~> 5.13)
->>>>>>> 622e1b4caada880051b0099149eab0c330a0e59f
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
