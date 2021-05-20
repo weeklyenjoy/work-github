@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
 
   devise_for :customers
-
+  root to: 'homes#top'
   resources :customers,only: [:show,:edit,:update,:destroy]
   namespace :customer do
-  resources :cart_items,only:[:index,:create,:destroy,:update]
-  resources :items,only:[:index,:edit,:show,:create]
-   # CartItem
-  delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
-end
+    resources :customers,only: [:show,:edit,:update,:destroy]
+    resources :cart_items,only:[:index,:create,:destroy,:update]
+    resources :items,only:[:index,:edit,:show,:create]
+    # CartItem
+    delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
+  end
 
   get 'customers/exit'
 
-  root to: 'homes#top'
+
 
   get 'homes/about'
 

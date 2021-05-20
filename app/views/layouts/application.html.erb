@@ -18,14 +18,14 @@
               <ul class="navbar-nav ml-auto ">
                 <li class="nav-item mr-4 pt-2">ようこそ、<%= current_customer.last_name %>さん！</li>
                 <li class="nav-item mr-4 border border-primary"><%= link_to "マイページ", customer_path(current_customer.id),class: "nav-link text-dark" %></li>
-                <li class="nav-item mr-4 border border-primary"><%= link_to "商品一覧", items_path ,class: "nav-link text-dark" %></li>
-                <li class="nav-item mr-4 border border-primary"><%= link_to "カート", cart_items_path,class: "nav-link text-dark" %></li>
+                <li class="nav-item mr-4 border border-primary"><%= link_to "商品一覧", customer_items_path ,class: "nav-link text-dark" %></li>
+                <li class="nav-item mr-4 border border-primary"><%= link_to "カート", customer_cart_items_path,class: "nav-link text-dark" %></li>
                 <li class="nav-item mr-4 border border-primary"><%= link_to "ログアウト" , destroy_customer_session_path,method: :delete,class: "nav-link text-dark" %></li>
               </ul>
             <% else %>
               <ul class="navbar-nav ml-auto ">
                 <li class="nav-item mr-4 border border-primary"><%= link_to "About", homes_about_path,class: "nav-link text-dark" %></li>
-                <li class="nav-item mr-4 border border-primary"><%= link_to "商品一覧", items_path,class: "nav-link text-dark" %></li>
+                <li class="nav-item mr-4 border border-primary"><%= link_to "商品一覧", customer_items_path,class: "nav-link text-dark" %></li>
                 <li class="nav-item mr-4 border border-primary"><%= link_to "新規登録", new_customer_registration_path,class: "nav-link text-dark" %></li>
                 <li class="nav-item mr-4 border border-primary"><%= link_to "ログイン" , new_customer_session_path,class: "nav-link text-dark" %></li>
               </ul>

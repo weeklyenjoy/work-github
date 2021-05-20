@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Customer::ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).reverse_order
@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @cart_item.customer_id = current_customer.id
     @cart_item.item_id = @item.id
     @cart_item.save
-    redirect_to cart_items_path
+    redirect_to customer_cart_items_path
   end
 
 
