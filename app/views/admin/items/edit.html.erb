@@ -1,0 +1,33 @@
+<div class="text-danger">
+  <% if @item.errors.any? %>
+     <span class="h4"><%= @item.errors.count %>errors prohibited this obj from being saved:</span>
+    <% @item.errors.full_messages.each do |message| %><br>
+       ・<%= message %>
+    <% end %>
+  <% end %>
+</div>
+<div>商品編集</div>
+<%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+  <div>商品画像</div>
+    <%= f.attachment_field :image %>
+  <div>商品名</div>
+   <%= f.text_field :name %>
+  <div>商品説明</div>
+    <%= f.text_area :caption %>
+  <div>ジャンル</div>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: "選択してください" } %>
+  <div>税抜き価格</div>
+    <%= f.number_field :tax_out_price %>
+  <div>販売ステータス</div>
+    <span class="admin-is_deleted-radio_button mr-3">
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :is_active, '販売中', value: true %>
+    </span>
+    <span class="admin-is_deleted-radio_button">
+      <%= f.radio_button :is_active, false %>
+      <%= f.label :is_active, '販売中止', value: false %>
+    </span>
+  <div>
+    <%= f.submit " 変更を保存する" %>
+  </div>
+<% end %>
