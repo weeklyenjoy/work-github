@@ -1,7 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   volume: 1
 
 two:
+=======
+  customer_id: 1
+  item_id: 1
+  volume: 1
+
+two:
+  customer_id: 1
+  item_id: 1
+>>>>>>> 47b0f2f08b904b4447c25eb4c81ebc7cdc85eb8e
   volume: 1
