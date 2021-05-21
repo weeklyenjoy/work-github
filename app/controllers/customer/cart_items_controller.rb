@@ -1,7 +1,7 @@
 class Customer::CartItemsController < ApplicationController
 
   def index
-    @cart_items = current_customer.cart_items
+    @cart_items = CartItem.where(customer_id: current_customer.id)
     @cart_item = CartItem.new
   end
 
@@ -9,7 +9,7 @@ class Customer::CartItemsController < ApplicationController
    @cart_item = current_customer.cart_items.new(params_cart_item)
    @cart_item.volume += params[:volume].to_i
    @cart_item.save
-   redirect_to customer_items_path
+   redirect_to customer_cart_items_path
 
   end
 
