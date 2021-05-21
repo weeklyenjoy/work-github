@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_cart_item
+  helper_method :current_customer
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_cart_item

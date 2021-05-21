@@ -2,7 +2,7 @@ class Customer::CartItemsController < ApplicationController
   before_action :set_cart_item, only: [:create, :update, :destroy]
 
   def index
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_item
   end
 
   def create
@@ -34,7 +34,7 @@ class Customer::CartItemsController < ApplicationController
   private
 
   def setup_cart_item!
-    @cart_item = current_user.cart_items.find_by(item_id: params[:item_id])
+    @cart_item = current_customer.cart_items.find_by(item_id: params[:item_id])
   end
 
 end
