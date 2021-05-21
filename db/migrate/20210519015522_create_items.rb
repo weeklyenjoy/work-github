@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.text :caption
       t.integer :tax_out_price
       t.string :image_id
-      t.boolean :is_active, default: true
+      t.boolean :is_active, default: true , null: false
 
       t.timestamps
     end

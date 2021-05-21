@@ -7,7 +7,7 @@
 <div>ジャンル</div>
 <div><%= @item.genre.name %></div>
 <div>税込み価格</div>
-<div><%= @item.tax_out_price * 1.1 %>円</div>
+<div><%= (@item.tax_out_price * 1.1).floor %><span>(<%= @item.tax_out_price %>)円</span></div>
 <div>販売ステータス</div>
 <div><%= @item.is_active == true ? "販売" : "販売中止" %></div>
 <div><%= link_to "編集する",edit_admin_item_path %></div>
