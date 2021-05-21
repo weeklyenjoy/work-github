@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
   end
 
   def new
@@ -12,7 +12,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "You have created Newitem successfully"
-      redirect_to admin_items_path
+      redirect_to admin_item_path(@item)
     else
       render new_admin_item_path
     end
@@ -38,7 +38,7 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :caption, :tax_out_price, :image, :genre_id)
+    params.require(:item).permit(:name, :caption, :tax_out_price, :image, :genre_id, :is_active)
   end
 
 
