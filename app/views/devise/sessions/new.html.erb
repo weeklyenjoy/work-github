@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="row">
     <div class="col-sm-10 px-sm-0">
@@ -25,4 +26,37 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6b6bbda3e11129a7fd857f5f9e4f211606c8416e
+=======
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 p-5 px-sm-0">
+        <h4 class="mb-4">ログイン</h4>
+
+        <p class="pl-5 mb-4">会員の方はこちらからログイン</p>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field mb-3">
+            <%= f.label :メールアドレス %> <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email",class: "ml-4 pr-5"%>
+          </div>
+
+          <div class="field mb-5">
+            <%= f.label :パスワード,class: "mr-5" %>　<%= f.password_field :password, autocomplete: "current-password", class: "pr-5" %>
+          </div>
+
+          <div class="actions ml-5 mb-5">
+            <%= f.submit "ログイン",class: "btn btn-sm btn-primary" %>
+          </div>
+        <% end %>
+
+        <p class="pb-1">※会員登録がお済みでない方</p>
+        <p><%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
+      </div>
+    </div>
+  </div>
+</main>
+>>>>>>> 47b0f2f08b904b4447c25eb4c81ebc7cdc85eb8e

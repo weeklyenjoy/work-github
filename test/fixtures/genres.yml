@@ -2,6 +2,7 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
   created_at: 2021-05-20 07:06:54
   updated_at: 2021-05-20 07:06:54
 
@@ -9,3 +10,8 @@ two:
   name: MyString
   created_at: 2021-05-20 07:06:54
   updated_at: 2021-05-20 07:06:54
+=======
+
+two:
+  name: MyString
+>>>>>>> 47b0f2f08b904b4447c25eb4c81ebc7cdc85eb8e
