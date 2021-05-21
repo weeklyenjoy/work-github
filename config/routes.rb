@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :customers
   root to: 'homes#top'
   get 'customers/:id/exit' => 'customer/customers#exit',as: 'customer_exit'
+  patch 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
   namespace :customer do
     resources :customers,only: [:show,:edit,:update,:destroy]
     resources :cart_items,only:[:index,:create,:destroy,:update]

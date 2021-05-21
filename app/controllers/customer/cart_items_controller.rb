@@ -1,6 +1,6 @@
-class CartItemsController < ApplicationController
+class Customer::CartItemsController < ApplicationController
   before_action :set_cart_item, only: [:create, :update, :destroy]
-  
+
   def index
     @cart_items = current_customer.cart_items
   end
@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
   redirect_to customer_items_path
 
   end
-  
+
   def update
     @cart_item.update(volume: params[:quantity].to_i)
     redirect_to customer_cart_items_path
