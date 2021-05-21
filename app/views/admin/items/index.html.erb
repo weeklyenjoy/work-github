@@ -1,0 +1,23 @@
+<div>商品一覧</div>
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜き価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |items| %>
+    <tr>
+      <td><%= items.id %></td>
+      <td><%= items.name %></td>
+      <td><%= items.tax_out_price %></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

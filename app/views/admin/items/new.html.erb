@@ -1,0 +1,17 @@
+<div>商品新規登録</div>
+<%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+  <div>商品画像</div>
+    <%= f.attachment_field :image %>
+  <div>商品名</div>
+   <%= f.text_field :name %>
+  <div>商品説明</div>
+    <%= f.text_area :caption %>
+  <div>ジャンル</div>
+
+  <div>税抜き価格</div>
+    <%= f.number_field :tax_out_price %>
+  <div>販売ステータス</div>
+  <div>
+    <%= f.submit " Update User" %>
+  </div>
+<% end %>
