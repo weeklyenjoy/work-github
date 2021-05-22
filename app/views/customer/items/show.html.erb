@@ -2,14 +2,15 @@
   <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3 mt-5">
-        <%= image_tag('no_image.jpg') %>
+        <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
       </div>
       <div class="col-md-8 offset-md-1 mt-5">
-        <h3>Item Name</h3>
-        <p class="mt-5">説明</p>
-        <p class="mt-5 mb-3">税込み金額</p>
-        <%= form_with model: @cart_item, local:true do |f| %>
+        <h3><%= @item.name %></h3>
+        <p class="mt-5"><%= @item.caption %></p>
+        <p class="mt-5 mb-3"><%= @item.tax_out_price %></p>
+        <%= form_with model: @cart_item,url: customer_cart_items_path,local:true do |f| %>
           <%= f.select :volume, [1,2,3,4,5,6,7,8,9,10],class: "mr-3" %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.submit 'カートに入れる', class: "btn btn-success" %>
         <% end %>
       </div>
