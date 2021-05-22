@@ -5,19 +5,9 @@ class Customer::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
     @cart_item = CartItem.new
   end
-
-  def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_item.item_id = @item.id
-    @cart_item.save
-    redirect_to customer_cart_items_path
-  end
-
-
-
 
 
   private
