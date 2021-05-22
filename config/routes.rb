@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
-  devise_for :customers
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+    get '/customers/log_in' => 'devise/sessions#customer/new'
+  end
+
+
+  devise_for :customers, controllers: {
+        sessions: 'customer/sessions'
+      }
+
+  devise_for :admins, controllers: {
+        sessions: 'admin/sessions'
+      }
+
   root to: 'homes#top'
   get 'customers/:id/exit' => 'customer/customers#exit',as: 'customer_exit'
   patch 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
