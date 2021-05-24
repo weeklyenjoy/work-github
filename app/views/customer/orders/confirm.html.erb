@@ -1,2 +1,51 @@
-<h1>Customer::Orders#confirm</h1>
-<p>Find me in app/views/customer/orders/confirm.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-7 mt-5 pt-3">
+        <h5 class="mb-4">注文情報確認</h5>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">商品名</th>
+              <th scope="col">単価（税込）</th>
+              <th scope="col">数量</th>
+              <th scope="col">小計</th>
+            </tr>
+          </thead>
+           <%#each文%>
+          <tbody>
+            <tr>
+              <td>項目１</td>
+              <td>項目２</td>
+              <td>項目３</td>
+              <td>項目4</td>
+            </tr>
+          </tbody>
+        </table>
+        <h5 class="mt-5">支払い方法</h5>
+
+        <h5 class="mt-5">お届け先</h5>
+      </div>
+      <div class="col-4 mt-5 pt-5">
+        <table class="table">
+
+          <tr>
+            <th>送料</th><td></td>
+          </tr>
+
+          <tr>
+            <th>商品合計</th><td></td>
+          </tr>
+
+          <tr>
+            <th>請求金額</th><td></td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5">
+    <%= link_to "確認画面に進む", thanx_path, class: "btn btn-success" %>
+  </div>
+</main>

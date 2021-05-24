@@ -44,7 +44,7 @@
         <td class="col-md-2"></td>
         <td class="col-md-10">
           <%= link_to "編集する", edit_admin_customer_path(@customer), class: "glyphicon glyphicon-pencil btn btn-warning", type: "button" %>
-          <%= link_to "注文履歴一覧を見る", admin_customer_path(@customer), class: "btn btn-outline-primary", type: "button" %>
+          <%= link_to "注文履歴一覧を見る", admin_orders_path(@customer), class: "btn btn-outline-primary", type: "button" %>
         </td>
       </tr>
     </table>
