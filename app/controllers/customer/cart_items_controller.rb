@@ -3,6 +3,7 @@ class Customer::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @cart_item = CartItem.new
+    # @total = @cart_items.inject(0) { |sum, item| sum + item.tax_out_price }
   end
 
   def create
@@ -14,7 +15,8 @@ class Customer::CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item.update(volume: params[:quantity].to_i)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(params_cart_item)
     redirect_to customer_cart_items_path
   end
 
@@ -32,7 +34,7 @@ class Customer::CartItemsController < ApplicationController
   private
 
   def params_cart_item
-    params.require(:cart_item).permit(:volume, :item_id)
+    params.require(:cart_item).permit(:volume, :item_id, :customer_id)
   end
 
 

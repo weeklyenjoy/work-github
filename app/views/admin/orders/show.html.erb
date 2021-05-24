@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-12">
+
+    <h3 class="order-title-show">
+      <strong>注文詳細画面</strong>
+    </h3>
+<!-- 注文詳細 -->
+        <table class="table table-striped">
+           <tr>
+              <th>購入者</th>
+              <td>
+               <%= link_to (@order.customer.full_name), admins_customer_path(@order.customer.id) %>
+              </td>
+          　</tr>
+          　<tr>
+              <th>配送先</th>
+              <td>
+                    <p>
+                    〒<%= @order.postal_code %><%= @order.adress %><br>
+                    <%= @order.name %>
+                    </p>
+              </td>
+          　</tr>
+          　<tr>
+              <th>支払い方法</th>
+              <td><%= @order.payment_method_i18n %></td>
+            </tr>

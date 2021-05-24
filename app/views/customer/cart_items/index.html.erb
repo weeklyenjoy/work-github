@@ -1,6 +1,6 @@
-<div class="container px-5 px-sm-0">
-   <div class="row">
-       <div class="col-md-8 offset-md-1">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-offset-xs-1">
          <div class="pull-left">
            <h2>ショッピングカート</h2>
          </div>
@@ -18,6 +18,7 @@
              </tr>
            </thead>
            <tbody>
+             <% total_fee = 0 #全商品の合計金額%>
              <% @cart_items.each do |cart_item| %>
                <tr>
                  <td>
@@ -25,32 +26,37 @@
                    <%= cart_item.item.name %>
                  </td>
                  <td>
-                   <%　price = cart_item.item.tax_out_price.to_i*1.1 %>
-                   <%= price %>
+                   <% tax_in_price = cart_item.item.tax_out_price.to_i*1.1 %>
+                   ¥<%= tax_in_price.floor %>
                  </td>
                  <td>
-                   <%= form_with model: @cart_item, url: customers_cart_item_path(cart_item), method: :patch , local: true do |f| %>
-                     <%= f.select :volume,options_for_select(1,2,3,4,5,6,7,8,9,10) %>
+                   <%= form_with model: cart_item, url: customer_cart_item_path(cart_item), method: :patch , local: true do |f| %>
+                     <%= f.number_field :volume %>
                      <%= f.submit "変更", class: "btn btn-info" %>
                    <% end %>
                  </td>
                  <td>
-                   <%= item_total = cart_item.item.volume.to_i*price %>
+                   <% sum = tax_in_price.floor * cart_item.volume %>
+                   ¥<%= sum.to_s(:delimited) %>
                  </td>
                  <td>
-                   <%= link_to " 削除する", customers_cart_item_path(cart_item), method: :delete,  class: "btn btn-danger" %>
+                   <%= link_to " 削除する", customer_cart_item_path(cart_item), method: :delete,  class: "btn btn-danger" %>
                  </td>
                </tr>
+               <% total_fee += sum %>
              <% end %>
            </tbody>
          </table>
          <div class="pull-left">
-           <%= link_to " 買い物を続ける", customer_items_path, class: "btn btn-info" %>
+           <tr>
+             <%= link_to " 買い物を続ける", customer_items_path, class: "btn btn-info" %>
          </div>
          <div class="pull-right">
            <table class="table table-bordered">
-             <tr><td>合計金額</td>合計計算式記述</tr>
-           </table>
+            <td class="sum">合計金額</td>
+            <td class="sum">¥<%= total_fee.to_s(:delimited) %></td>
+          </tr>
+        </table>
          </div>
          <div class="text-center">
            <%= link_to " 情報入力に進む", new_customer_order_path,  class: " btn btn-success center-block" %>
