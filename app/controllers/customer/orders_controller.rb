@@ -10,6 +10,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
+
   end
 
   def thanx

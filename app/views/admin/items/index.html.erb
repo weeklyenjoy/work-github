@@ -1,6 +1,7 @@
 <div class="container">
   <div class="admin-customer pt-5">
     <h4 class="pb-3">商品一覧</h4>
+    <span><%= link_to "+", new_admin_item_path, class: 'btn btn-default' %></span>
     <table class="table">
       <thead>
         <tr class="table-active">
@@ -13,7 +14,7 @@
       </thead>
       <tbody>
       <% @items.each do |item| %>
-        <tr class="table-active">
+        <tr>
           <td><%= item.id %></td>
           <td><%= link_to item.name,admin_item_path(item) %></td>
           <td><%= item.tax_out_price %></td>
