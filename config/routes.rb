@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'customers/orders/thanx' => 'customer/orders#thanx',as: 'thanx'
+
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
     get '/customers/log_in' => 'devise/sessions#customer/new'
   end
 
+  devise_scope :admin do
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+    get '/admins/sign_in' => 'devise/sessions#new',as: 'sign_in'
+  end
 
   devise_for :customers, controllers: {
         sessions: 'customer/sessions'
@@ -18,7 +24,6 @@ Rails.application.routes.draw do
   get 'customers/:id/exit' => 'customer/customers#exit',as: 'customer_exit'
   patch 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
   get 'customers/orders/confirm' => 'customer/orders#confirm',as: 'confirm'
-  get 'customers/orders/thanx' => 'customer/orders#thanx',as: 'thanx'
   namespace :customer do
     resources :customers,only: [:show,:edit,:update,:destroy]
     resources :cart_items,only:[:index,:create,:destroy,:update]
@@ -39,6 +44,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
+    resources :ordered_items, only: [:update]
   end
 
 end

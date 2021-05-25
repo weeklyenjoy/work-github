@@ -6,19 +6,24 @@
         <p>注文情報</p>
         <table class="table">
           <tr>
-            <th scope="col">注文日</th><td></td>
+            <th scope="col">注文日</th><td><%= @order.created_at %></td>
           </tr>
 
           <tr>
-            <th scope="col">配送先</th><td></td>
+            <th scope="col">配送先</th>
+            <td>
+              〒<%= @order.postal_code %><br>
+              <%= @order.address %><br>
+              <%= @order.name %>
+            </td>
           </tr>
 
           <tr>
-            <th scope="col">支払い方法</th><td></td>
+            <th scope="col">支払い方法</th><td><%= @order.payment_method %></td>
           </tr>
 
           <tr>
-            <th scope="col">ステータス</th><td></td>
+            <th scope="col">ステータス</th><td><%= @order.status %></td>
           </tr>
         </table>
       </div>
@@ -53,15 +58,22 @@
               <th scope="col">小計</th>
             </tr>
           </thead>
-           <%#each文%>
-          <tbody>
-            <tr>
-              <td>項目１</td>
-              <td>項目２</td>
-              <td>項目３</td>
-              <td>項目4</td>
-            </tr>
-          </tbody>
+          <% @oder.ordered_items.each do |ordered_item| %>
+            <tbody>
+              <tr>
+                <td><%= order.ordered_item.name %></td>
+                <td>
+                  <% tax_in_price = order.ordered_item.tax_out_price.floor*1.1 %>
+                  <%= tax_in_price %>
+                </td>
+                <td><%= order.ordered_item.volume %></td>
+                <td>
+                 <% prise = order.ordered_item.volume*taxax_in_price.floor %>
+                 <%= prise %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
         </table>
       </div>
     </div>

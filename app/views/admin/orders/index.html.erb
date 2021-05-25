@@ -8,6 +8,7 @@
         <th>注文個数</th>
         <th>注文ステータス</th>
       </tr>
+      <% total_volume = 0 %>
       <% @orders.each do |order| %>
         <tr>
           <td>
@@ -19,7 +20,15 @@
             <%= order.customer.full_name %>
           </td>
           <td>
+<<<<<<< HEAD
             <%= order.total_volume %>
+=======
+            <% order.ordered_item.volume.each do | i | %>
+            <% sum = i.volume %>
+            <% total_volume += sum %>
+            <%= total_volume.to_s %>
+            <% end %>
+>>>>>>> 93345f1f8ce4f284ebd9958ebef6897cab972b2e
           </td>
           <td>
             <%= order.status_i18n %>
