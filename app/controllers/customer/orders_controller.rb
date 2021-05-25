@@ -1,6 +1,6 @@
 class Customer::OrdersController < ApplicationController
   def index
-    @oders = current_customer.oders
+   @orders = current_customer.orders
   end
 
   def show
@@ -30,7 +30,7 @@ class Customer::OrdersController < ApplicationController
   if params[:order][:address_option] == "0"
      @order.address = current_customer.address
      @order.postal_code = current_customer.postal_code
-     @order.user_id = current_customer.id
+     @order.customer_id = current_customer.id
      @order.name = current_customer.last_name + current_customer.first_name
 
   elsif
