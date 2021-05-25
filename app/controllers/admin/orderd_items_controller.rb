@@ -1,7 +1,7 @@
-class Admin::OrderedItemsController < ApplicationController
+class Admin::OrderdItemsController < ApplicationController
     def update
-        @ordered_items = OrderedItem.find(params[:id])
-        @ordered_items.update(ordered_items_params)
+        @ordered_items = OrderedItem(ordered_items_paramas)
+        @ordered_items.update
         redirect_to admin_order_path
     end
 

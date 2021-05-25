@@ -5,6 +5,7 @@ class Customer::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @ordered_items = @order.ordered_items
   end
 
   def new
