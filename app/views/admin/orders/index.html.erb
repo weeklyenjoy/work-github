@@ -8,6 +8,7 @@
         <th>注文個数</th>
         <th>注文ステータス</th>
       </tr>
+      <% total_volume = 0 %>
       <% @orders.each do |order| %>
         <tr>
           <td>
@@ -19,7 +20,11 @@
             <%= order.customer.full_name %>
           </td>
           <td>
-            <%= order.order_items.to_s(:delimited) %>
+            <% order.ordered_item.volume.each do | i | %>
+            <% sum = i.volume %>
+            <% total_volume += sum %>
+            <%= total_volume.to_s %>
+            <% end %>
           </td>
           <td>
             <%= order.status %>

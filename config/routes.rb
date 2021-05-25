@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get '/customers/log_in' => 'devise/sessions#customer/new'
   end
 
+  devise_scope :admin do
+    get '/admins/sign_out' => 'devise/sessions#destroy'
+    get '/admins/sign_in' => 'devise/sessions#new',as: 'sign_in'
+  end
 
   devise_for :customers, controllers: {
         sessions: 'customer/sessions'
@@ -40,6 +44,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
+    resources :ordered_items, only: [:update]
   end
 
 end
