@@ -1,13 +1,13 @@
 <main>
   <h5 class="ml-5 mt-4 mb-4">注文情報入力</h5>
-  <%= form_with model: @order, url: confirm_path, method: :post,local: true do |f| %>
+  <%= form_with model: @order, url: "/customers/orders/confirm",method: :get,local: true do |f| %>
       <%= f.label :payment_method, "支払い方法",class: "ml-4" %>
       <br>
       <div class="payment-option ml-5">
-        <%= f.radio_button :payment_method,:クレジットカード,  checked: "checked" %>
+        <%= f.radio_button :payment_method, 0,  checked: "checked" %>
         <%= f.label :payment_method, "クレジットカード" %>
       <br>
-        <%= f.radio_button :payment_method, :銀行振込 %>
+        <%= f.radio_button :payment_method,1 %>
         <%= f.label :payment_method, "銀行振込" %>
       </div>
       <%= f.label :address, "お届け先",class: "ml-4" %>
@@ -17,7 +17,7 @@
         <%= current_customer.postal_code %>
         <%= current_customer.address %>
         </br>
-        <%= f.radio_button :address_option, 1%>
+        <%= f.radio_button :address_option, 1 %>
         <%= f.label :address, "登録済住所から選択", class: "mb-4" %>
         <%= f.collection_select :address , current_customer.shipping_addresses, :id, :address , :include_blank => "選択してください" %>
         <br>
@@ -33,6 +33,7 @@
         <%= f.label :name, "宛名" ,class:"mr-5 mb-5" %>
         <%= f.text_field :name %>
         <br>
+        <%= f.hidden_field :status, :value => 0 %>
         <%= f.submit "確認画面へ進む" , class:"btn btn-primary" %>
       </div>
   <% end %>
