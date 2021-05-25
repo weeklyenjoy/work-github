@@ -1,8 +1,10 @@
 class Customer::OrdersController < ApplicationController
   def index
+    @oders = current_customer.oders
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new

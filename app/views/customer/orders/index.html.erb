@@ -14,17 +14,26 @@
               <th scope="col">注文詳細</th>
             </tr>
           </thead>
-           <%#each文%>
-          <tbody>
-            <tr>
-              <td>項目１</td>
-              <td>項目２</td>
-              <td>項目３</td>
-              <td>項目4</td>
-              <td>項目５</td>
-              <td>項目6</td>
-            </tr>
-          </tbody>
+          <% @oders.each do |cart_item| %>
+            <tbody>
+              <tr>
+                <td><%= oder.create_at %></td>
+                <td>
+                  〒<%= oder.postal_code %><br>
+                  <%= oder.address %><br>
+                  <%= oder.name %>
+                </td>
+                <td>
+                  <% oder.oder_item.each do |oder_item| %>
+                    <%= oder_item.name %><br>
+                  <% end %>
+                </td>
+                <td><%= oder.total_fee.to_s(:delimited) %></td>
+                <td><%= oder.oder_status %></td>
+                <td><%= link_to "表示する", customer_oder_path(oder.id) %> </td>
+              </tr>
+            </tbody>
+          <% end %>
         </table>
     </div>
   </div>
