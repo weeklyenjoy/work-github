@@ -6,19 +6,24 @@
         <p>注文情報</p>
         <table class="table">
           <tr>
-            <th scope="col">注文日</th><td></td>
+            <th scope="col">注文日</th><td><%= oder.create_at %></td>
           </tr>
 
           <tr>
-            <th scope="col">配送先</th><td></td>
+            <th scope="col">配送先</th>
+            <td>
+              〒<%= oder.postal_code %><br>
+              <%= oder.address %><br>
+              <%= oder.name %>
+            </td>
           </tr>
 
           <tr>
-            <th scope="col">支払い方法</th><td></td>
+            <th scope="col">支払い方法</th><td><%= oder.payment_method %></td>
           </tr>
 
           <tr>
-            <th scope="col">ステータス</th><td></td>
+            <th scope="col">ステータス</th><td><%= oder.status %></td>
           </tr>
         </table>
       </div>
@@ -53,15 +58,19 @@
               <th scope="col">小計</th>
             </tr>
           </thead>
-           <%#each文%>
-          <tbody>
-            <tr>
-              <td>項目１</td>
-              <td>項目２</td>
-              <td>項目３</td>
-              <td>項目4</td>
-            </tr>
-          </tbody>
+          <% @oders.each do |oder| %>
+            <tbody>
+              <tr>
+                <td><%= oder.oder_item.name %></td>
+                <td><%= oder.oder_item.ax_in_price.floor %></td>
+                <td><%= oder.oder_item.volume %></td>
+                <td>
+                 <% prise = oder.oder_item.volume*oder.oder_item.ax_in_price.floor %>
+                 <%= prise %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
         </table>
       </div>
     </div>
