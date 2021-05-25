@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'customers/orders/thanx' => 'customer/orders#thanx',as: 'thanx'
+
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
     get '/customers/log_in' => 'devise/sessions#customer/new'
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
   get 'customers/:id/exit' => 'customer/customers#exit',as: 'customer_exit'
   patch 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
   get 'customers/orders/confirm' => 'customer/orders#confirm',as: 'confirm'
-  get 'customers/orders/thanx' => 'customer/orders#thanx',as: 'thanx'
   namespace :customer do
     resources :customers,only: [:show,:edit,:update,:destroy]
     resources :cart_items,only:[:index,:create,:destroy,:update]
