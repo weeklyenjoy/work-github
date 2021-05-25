@@ -5,6 +5,7 @@ class Customer::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @ordered_items = @order.ordered_items
   end
 
   def new
@@ -37,7 +38,7 @@ class Customer::OrdersController < ApplicationController
     @order.status = params[:order][:status].to_i
     @order.shipping_cost = 800
     @cart_items = CartItem.where(customer_id: current_customer.id )
-    
+
   if params[:order][:address_option] == "0"
      @order.address = current_customer.address
      @order.postal_code = current_customer.postal_code
