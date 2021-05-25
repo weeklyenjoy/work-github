@@ -16,6 +16,17 @@ class Customer::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.shipping_cost = 800
     @order.save!
+    @cart_items = current_customer.cart_items
+  @cart_items.each do |cart_item|
+    @ordered_item = OrderedItem.new
+    @ordered_item.order_id = @order.id
+    @ordered_item.item_id = cart_item.item.id
+    @ordered_item.making_status = 0
+    @ordered_item.tax_in_price = cart_item.item.tax_out_price * 1.1.floor
+    @ordered_item.volume = cart_item.volume
+    @ordered_item.save
+    cart_item.destroy
+  end
     redirect_to thanx_path
   end
 
@@ -25,8 +36,8 @@ class Customer::OrdersController < ApplicationController
     @order.address_option = params[:order][:address_option].to_i
     @order.status = params[:order][:status].to_i
     @order.shipping_cost = 800
-    @cart_items = CartItem.where(id: current_customer.id)
-
+    @cart_items = CartItem.where(customer_id: current_customer.id )
+    
   if params[:order][:address_option] == "0"
      @order.address = current_customer.address
      @order.postal_code = current_customer.postal_code
@@ -58,4 +69,5 @@ class Customer::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name,:address,:postal_code,:billing_amount,:payment_method,:status,:address_option)
   end
+
 end
