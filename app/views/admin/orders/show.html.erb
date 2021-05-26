@@ -39,7 +39,7 @@
             </tr>
           </table>
 
-            <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered">
            <thead>
              <tr class="info">
                <th>商品名</th>
@@ -67,8 +67,8 @@
                    ¥<%= sum.to_s(:delimited) %>
                  </td>
                  <td>
-                  <%= form_with model: @ordered_items, url: admin_ordered_item_path(ordered_item), method: :patch, local: true do |f| %>
-                    <%= f.select :making_status, {'着手不可': 0, '製作待ち': 1,'製作中':2,'製作完了': 3}, class: "ml-4" %>
+                  <%= form_with model: ordered_item, url: admin_ordered_item_path(ordered_item), method: :patch, local: true do |f| %>
+                    <%= f.select :making_status, ["着手不可","製作待ち","製作中","製作完了"],:selected=> ordered_item.making_status, class: "ml-4" %>
                     <%= f.submit "変更", class: "btn btn-info" %>
                   <% end %>
                  </td>
@@ -76,7 +76,16 @@
                <% total_fee += sum %>
              <% end %>
            </tbody>
-         </table>
+        </table>
+        <div>商品合計
+            <%= total_fee %>
+        </div>
+        <div>送料
+            800
+        </div>
+        <div>請求金額合計
+            <%= total_fee + 800 %>
+        </div>
      </div>
   </div>
 </div>
