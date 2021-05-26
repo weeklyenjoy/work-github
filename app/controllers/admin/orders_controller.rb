@@ -6,14 +6,18 @@ class Admin::OrdersController < ApplicationController
 
   def show
   	@order = Order.find(params[:id])
-  	@ordered_items = @order.ordered_items.all
+  	@ordered_items = @order.ordered_items
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(orders_params)
-    redirect_to admin_order_path(@order)
+    @ordered_items = @order.ordered_items.all
+    redirect_to admin_order_path(@order.id)
   end
+
+
+
 
   private
 

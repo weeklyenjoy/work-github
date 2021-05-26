@@ -1,19 +1,70 @@
 <main>
-  <h3 class="title mt-5 ml-5">商品一覧(全<%= @items.count %>件)</h3>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
-    <% @items.each do |item| %>
-    <div class="col text-center mt-5">
-      <div class="card">
-        <%= link_to customer_item_path(item.id) do %>
-          <%= attachment_image_tag item, :image, :fill, 120, 120, format: 'jpeg' %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= item.name %></h5>
-          <p class="card-text"><%= item.tax_out_price %>円</p>
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+          <h4 class="mt-5 mb-5">商品一覧 (全X件)</h4>
         </div>
+      <div class="card-group mb-3">
+          <div class="card" style="width: 18rem">
+            <img src="images.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Name</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images2.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images3.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+      </div>
+      <div class="card-group mb-3">
+          <div class="card" style="width: 18rem">
+            <img src="images4.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Name</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="images5.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="woman.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem">
+              <img src="../images6.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Item Title</h5>
+              <p>Item Amount</p>
+            </div>
+          </div>
       </div>
     </div>
-    <% end %>
   </div>
   <%= paginate @items %>
 </main>
