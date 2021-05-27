@@ -43,7 +43,7 @@
             </td>
             <td>
               <%= link_to "編集する",edit_customer_shipping_address_path(shipping_address.id), class: "btn btn-sm btn-success pull-left" %>
-              <%= link_to "削除する",customer_shipping_address_path(shipping_address.id), method: :delete,"data-confirm" => "本当に消しますか?", class: 'btn btn-sm btn-danger pull-right' %>
+              <%= link_to "削除する","/customer/shipping_addresses/#{shipping_address.id}","data-confirm" => "本当に消しますか?", class: 'btn btn-sm btn-danger pull-right' %>
             </td>
           </tr>
         <% end %>
