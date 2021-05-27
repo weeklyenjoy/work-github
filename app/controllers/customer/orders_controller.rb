@@ -1,6 +1,6 @@
 class Customer::OrdersController < ApplicationController
   def index
-   @orders = current_customer.orders
+    @orders = current_customer.orders
   end
 
   def show
@@ -39,6 +39,7 @@ class Customer::OrdersController < ApplicationController
     @order.shipping_cost = 800
     @cart_items = CartItem.where(customer_id: current_customer.id )
 
+
   if params[:order][:address_option] == "0"
      @order.address = current_customer.address
      @order.postal_code = current_customer.postal_code
@@ -46,15 +47,13 @@ class Customer::OrdersController < ApplicationController
      @order.name = current_customer.last_name + current_customer.first_name
 
   elsif
-    params[:address_option] == "1"
-    @sta = params[:order][:address].to_i
+    params[:order][:address_option] == "1"
+    @sta = params[:order][:address_id].to_i
     @order_address = ShippingAddress.find(@sta)
     @order.postal_code = @order_address.postal_code
     @order.address = @order_address.address
     @order.name = @order_address.name
-
-  elsif
-    params[:address_option] == "2"
+  else
     @order.postal_code = params[:order][:postal_code]
     @order.address = params[:order][:address]
   end

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
-    get '/customers/log_in' => 'devise/sessions#customer/new'
+    get '/customers/log_in' => 'devise/sessions#customer/devise/sessions/new'
+    get '/customer/cart_items/:id' => 'customer/cart_items#destroy'
+    get '/customer/shipping_addresses/:id' => 'customer/shipping_addresses#destroy'
   end
 
   devise_scope :admin do
@@ -13,7 +15,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :customers, controllers: {
-        sessions: 'customer/sessions'
+        sessions: 'customer/sessions',
+        registrations: 'customer/registrations'
       }
 
   devise_for :admins, controllers: {
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'customers/:id/exit' => 'customer/customers#exit',as: 'customer_exit'
-  patch 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
+  get 'customers/:id/withdrawal' => 'customer/customers#withdrawal', as: 'withdrawal'
   get 'customers/orders/confirm' => 'customer/orders#confirm',as: 'confirm'
   namespace :customer do
     resources :customers,only: [:show,:edit,:update,:destroy]
@@ -31,7 +34,7 @@ Rails.application.routes.draw do
     resources :shipping_addresses,only:[:index,:create,:edit,:destroy,:update]
     resources :orders,only:[:index,:show,:new,:create]
     # CartItem
-    delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
+    get 'cart_item/destroy_all' => 'cart_items#destroy_all'
   end
 
 

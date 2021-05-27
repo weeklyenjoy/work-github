@@ -5,7 +5,7 @@
            <h2>ショッピングカート</h2>
          </div>
          <div class="pull-right">
-           <p><%= link_to "カートを空にする", customer_cart_item_destroy_all_path, method: :delete,class: 'btn btn-sm btn-danger' %></p>
+           <p><%= link_to "カートを空にする", "cart_item/destroy_all",class: 'btn btn-sm btn-danger' %></p>
          </div>
          <table class="table table-hover table-bordered">
            <thead>
@@ -40,7 +40,7 @@
                    ¥<%= sum.to_s(:delimited) %>
                  </td>
                  <td>
-                   <%= link_to " 削除する", customer_cart_item_path(cart_item), method: :delete,  class: "btn btn-danger" %>
+                   <%= link_to " 削除する", "/customer/cart_items/#{cart_item}",  class: "btn btn-danger" %>
                  </td>
                </tr>
                <% total_fee += sum %>
@@ -49,7 +49,7 @@
          </table>
          <div class="pull-left">
            <tr>
-             <%= link_to " 買い物を続ける", customer_items_path, class: "btn btn-info" %>
+             <%= link_to " 買い物を続ける", root_path, class: "btn btn-info" %>
          </div>
          <div class="pull-right">
            <table class="table table-bordered">

@@ -1,6 +1,7 @@
 class Customer::ShippingAddressesController < ApplicationController
+
   def index
-    @shipping_addresses = current_customer.shipping_address
+    @shipping_addresses = current_customer.shipping_addresses
     @shipping_address = ShippingAddress.new
   end
 
