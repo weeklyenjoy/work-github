@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.notice {
+  background-color: green;
+  color: white;
+  text-align: center;
+  height:40px;
+}
+
+.alert {
+  background-color: red;
+  color: white;
+  text-align: center;
+  height:40px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
