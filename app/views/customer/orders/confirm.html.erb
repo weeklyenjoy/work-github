@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-7 mt-5 pt-3">
-        <h5 class="mb-4">注文情報確認</h5>
+        <h5 class="mb-4 h4">注文情報確認</h5>
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -14,25 +14,25 @@
           </thead>
            <% total_price = 0 %>
            <% @cart_items.each do |cart_item| %>
-          
+
            <% tax_in_price = cart_item.item.tax_out_price * 1.1 %>
           <tbody>
             <tr>
               <td><%= cart_item.item.name %></td>
-              <td><%= tax_in_price.floor %></td>
-              <td><%= cart_item.volume %></td>
-              <td><%= tax_in_price.floor * cart_item.volume %></td>
+              <td><%= tax_in_price.floor %>円</td>
+              <td><%= cart_item.volume %>個</td>
+              <td><%= tax_in_price.floor * cart_item.volume %>円</td>
             </tr>
             <% sum = tax_in_price.floor * cart_item.volume %>
             <% total_price += sum %>
           </tbody>
           <% end %>
         </table>
-        <h5 class="mt-5">支払い方法</h5>
+        <h5 class="mt-5 h4">支払い方法</h5>
         <p class="mt-4 ml-5">
           <%= @order.payment_method %>
         </p>
-        <h5 class="mt-5">お届け先</h5>
+        <h5 class="mt-5 h4">お届け先</h5>
         <p class="mt-4 ml-5">
           <%= @order.postal_code %> <%= @order.address %>
         </p>
@@ -41,15 +41,15 @@
         <table class="table">
 
           <tr>
-            <th>送料</th><td>800</td>
+            <th>送料</th><td>800円</td>
           </tr>
 
           <tr>
-            <th>商品合計</th><td><%= total_price %></td>
+            <th>商品合計</th><td><%= total_price %>円</td>
           </tr>
 
           <tr>
-            <th>請求金額</th><td><%= total_price + 800 %></td>
+            <th>請求金額</th><td><%= total_price + 800 %>円</td>
           </tr>
         </table>
       </div>
