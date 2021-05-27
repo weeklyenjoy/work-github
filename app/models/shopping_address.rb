@@ -1,2 +1,0 @@
-class ShoppingAddress < ApplicationRecord
-end

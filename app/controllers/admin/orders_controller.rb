@@ -1,7 +1,9 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+
 
   def index
-  	@order = Order.page(params[:page]).per(7)
+  	@orders = Order.page(params[:page]).per(7)
   end
 
   def show
@@ -13,7 +15,11 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(orders_params)
     @ordered_items = @order.ordered_items.all
-    redirect_to admin_order_path(@order.id)
+    
+    if @order.status == "入金確認" 
+	     @ordered_items.update_all(making_status: "製作待ち") 
+    end
+       redirect_to admin_order_path(@order.id)
   end
 
 
