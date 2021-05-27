@@ -1,4 +1,5 @@
 class Admin::OrderedItemsController < ApplicationController
+
     def update
         @ordered_items = OrderedItem.find(params[:id])
         @ordered_items.update(ordered_items_params)
