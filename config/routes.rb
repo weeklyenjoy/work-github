@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   devise_scope :admin do
-    get '/admins/sign_out' => 'devise/sessions#destroy',as: 'admin_sign_out'
-    get '/admins/sign_in' => 'devise/sessions#new',as: 'admin_sign_in'
+    get '/admins/sign_out' => 'admin/sessions#destroy',as: 'admin_sign_out'
+    get '/admins/sign_in' => 'admin/sessions#new',as: 'admin_sign_in'
   end
 
   devise_for :customers, controllers: {
