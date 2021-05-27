@@ -27,7 +27,9 @@
                   <% total = 0 %>
                   <% order.ordered_items.each do |ordered_item| %>
                     <%= ordered_item.item.name %><br>
-                    <% total += (ordered_item.item.tax_out_price * ordered_item.volume * 1.1).floor %>
+
+                    <% total += (ordered_item.item.tax_out_price*1.1*ordered_item.volume).floor %>
+
                   <% end %>
                 </td>
                 <td><%= total.to_s(:delimited) %>円</td>
