@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     get '/customer/shipping_addresses/:id' => 'customer/shipping_addresses#destroy'
   end
 
+  devise_scope :admin do
+    get '/admins/sign_out' => 'devise/sessions#destroy',as: 'admin_sign_out'
+    get '/admins/sign_in' => 'devise/sessions#new',as: 'admin_sign_in'
+  end
 
   devise_for :customers, controllers: {
         sessions: 'customer/sessions',
@@ -43,6 +47,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
+    resources :ordered_items, only: [:update]
   end
 
 end
