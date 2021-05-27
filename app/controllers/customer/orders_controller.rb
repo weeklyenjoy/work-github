@@ -56,6 +56,7 @@ class Customer::OrdersController < ApplicationController
   else
     @order.postal_code = params[:order][:postal_code]
     @order.address = params[:order][:address]
+    @order.name = params[:order][:name]
   end
 
 

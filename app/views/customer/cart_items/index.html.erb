@@ -40,7 +40,7 @@
                    ¥<%= sum.to_s(:delimited) %>
                  </td>
                  <td>
-                   <%= link_to " 削除する", "/customer/cart_items/#{cart_item}",  class: "btn btn-danger" %>
+                   <%= link_to " 削除する", "/customer/cart_items/#{cart_item.id}",  class: "btn btn-danger" %>
                  </td>
                </tr>
                <% total_fee += sum %>

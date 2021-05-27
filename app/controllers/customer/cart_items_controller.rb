@@ -16,12 +16,12 @@ class Customer::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(params[:id])
+    @cart_item.update(params_cart_item)
     redirect_to customer_cart_items_path
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
+    @cart_item= CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to customer_cart_items_path
   end
